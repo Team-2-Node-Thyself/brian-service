@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server",
-    "watch": "webpack --w"
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -17,7 +17,7 @@
     "lodash": "^4.17.20",
     "mysql": "^2.18.1",
     "react": "^17.0.1",
-    "reactdom": "^2.0.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
