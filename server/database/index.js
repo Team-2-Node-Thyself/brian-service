@@ -15,7 +15,7 @@ connection.connect((err) => {
     }
 })
 
-connection.getProduct = (id, cb) => {
+const getProduct = (id, cb) => {
     let queryStr = 'select * from product where id = ?';
     connection.query(queryStr, id, (err, result) => {
         if(err) {
@@ -26,4 +26,6 @@ connection.getProduct = (id, cb) => {
     });
 };
 
-module.exports = connection;
+module.exports = {
+    getProduct = getProduct
+};
