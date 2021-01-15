@@ -27,5 +27,5 @@ const getProduct = (id, cb) => {
 };
 
 module.exports = {
-    getProduct = getProduct
+    getProduct
 };
