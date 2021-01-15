@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Price from './Price.jsx';
 
 class App extends React.Component {
     constructor(){
@@ -10,7 +11,7 @@ class App extends React.Component {
     }
     componentDidMount(){
         // pressuming that we are only loading one page for this app
-        // load the first product off this app.
+        // load the first product for this app.
         axios.get('/api/product/1')
         .then((response) => {
             this.setState({
@@ -23,7 +24,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <>React App is working. Please continue your work.</>
+            <Price />
         )
     }
 }
