@@ -15,4 +15,15 @@ connection.connect((err) => {
     }
 })
 
+connection.getProduct = (id, cb) => {
+    let queryStr = 'select * from product where id = ?';
+    connection.query(queryStr, id, (err, result) => {
+        if(err) {
+            cb(err, null);
+        } else {
+            cb(null, result);
+        }
+    });
+};
+
 module.exports = connection;
