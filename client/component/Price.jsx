@@ -1,8 +1,16 @@
 import React from 'react';
 
 let Price = (props) => {
+    debugger;
+    var {price, discount} = props.product;
+    if(price !== undefined){
+        price = price.toFixed(2);
+    }
     return (
-        <>Price Component is Working. Please Keep working.</>
+        <>
+            <div>Price: {price}</div>
+            <div>Discount: {discount}</div>
+        </>
     );
 }
 

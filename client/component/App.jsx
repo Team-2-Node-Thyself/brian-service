@@ -14,8 +14,9 @@ class App extends React.Component {
         // load the first product for this app.
         axios.get('/api/product/1')
         .then((response) => {
+            debugger;
             this.setState({
-                product: response.data
+                product: response.data[0]
             });
         }).catch(function(error) {
             console.log(`Error loading data from database: ${error}`);
@@ -24,7 +25,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Price />
+            <Price product={this.state.product}/>
         )
     }
 }
