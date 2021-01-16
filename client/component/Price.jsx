@@ -15,8 +15,8 @@ let Price = (props) => {
     }
     return (
         <>
-            <div>Price: {discount ? `$${(price-disAmount).toFixed(2)} Sale` : price}</div>
-            <div>Discount: {discount ? `Save $${disAmount} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</div>
+            <div>{discount ? `$${(price-disAmount).toFixed(2)} Sale` : price}</div>
+            <div>reg ${price} {discount ? `Save $${disAmount} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</div>
         </>
     );
 }
