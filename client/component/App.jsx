@@ -6,7 +6,7 @@ class App extends React.Component {
     constructor(){
         super();
         this.state = {
-            product: []
+            product: {}
         }
     }
     componentDidMount(){
@@ -24,8 +24,15 @@ class App extends React.Component {
     }
 
     render() {
+        debugger;
         return (
-            <Price product={this.state.product}/>
+            <>
+            {Object.keys(this.state.product).length > 0 &&
+                <Price product={this.state.product}/> }
+            {Object.keys(this.state.product).length === 0 &&
+                <div>Something is wrong. Unless you paused as the page is rendering, this should never show up.</div>
+            }
+            </>
         )
     }
 }
