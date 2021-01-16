@@ -14,7 +14,6 @@ class App extends React.Component {
         // load the first product for this app.
         axios.get('/api/product/1')
         .then((response) => {
-            debugger;
             this.setState({
                 product: response.data[0]
             });
@@ -24,7 +23,6 @@ class App extends React.Component {
     }
 
     render() {
-        debugger;
         return (
             <>
             {Object.keys(this.state.product).length > 0 &&
