@@ -2,6 +2,7 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const db = require('./database');
+// const { getProduct } = require('./database'); // if I end up only using one function in my database,I will uncomment this line.
 
 const PORT= 8080;
 const app = express();
