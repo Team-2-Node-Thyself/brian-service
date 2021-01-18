@@ -26,6 +26,25 @@ const getProduct = (id, cb) => {
     });
 };
 
+const getProductColor = (id, color, cb) => {
+    // let queryStr = 'select color from product where id = ?';
+    getProduct(id, (err, result) => {
+        if(err) {
+            cb(err, null);
+        } else {
+            let queryStr = 'select color from product where product_name = ? AND color != ?';
+            connection.query(queryStr, [result[0].product_name, color], (err, result) => {
+                if(err) {
+                    cb(err, null);
+                } else {
+                    cb(null, result);
+                }
+            })
+        }
+    })
+}
+
 module.exports = {
-    getProduct
+    getProduct,
+    getProductColor
 };

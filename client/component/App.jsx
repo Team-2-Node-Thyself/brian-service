@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import Price from './Price.jsx';
 
 const WidgetArea = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2 1fr);
+    gird-template-rows: repeat (3 1fr);
+    border: 5px solid magenta;
 `;
 
 class App extends React.Component {
@@ -36,8 +40,8 @@ class App extends React.Component {
                     <div>Something is wrong. Unless you paused as the page is rendering, this should never show up.</div>
                 }
             </WidgetArea>
-                {/* <WidgetArea>This is another widget area</WidgetArea>
-                <WidgetArea>This is the last widget area</WidgetArea> */}
+                <WidgetArea>This is another widget area</WidgetArea>
+                <WidgetArea>This si the last widget area</WidgetArea>
             </>
         )
     }
