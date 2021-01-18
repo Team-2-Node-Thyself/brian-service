@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Price from './Price.jsx';
+
+const WidgetArea = styled.div`
+`;
 
 class App extends React.Component {
     constructor(){
@@ -25,11 +29,15 @@ class App extends React.Component {
     render() {
         return (
             <>
-            {Object.keys(this.state.product).length > 0 &&
-                <Price product={this.state.product}/> }
-            {Object.keys(this.state.product).length === 0 &&
-                <div>Something is wrong. Unless you paused as the page is rendering, this should never show up.</div>
-            }
+            <WidgetArea>
+                {Object.keys(this.state.product).length > 0 &&
+                    <Price product={this.state.product}/> }
+                {Object.keys(this.state.product).length === 0 &&
+                    <div>Something is wrong. Unless you paused as the page is rendering, this should never show up.</div>
+                }
+            </WidgetArea>
+                {/* <WidgetArea>This is another widget area</WidgetArea>
+                <WidgetArea>This is the last widget area</WidgetArea> */}
             </>
         )
     }
