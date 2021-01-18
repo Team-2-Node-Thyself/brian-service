@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Price from './Price.jsx';
+import Stock from './Stock.jsx';
 
 const WidgetArea = styled.div`
     display: grid;
@@ -53,7 +54,7 @@ class App extends React.Component {
                 <MarginTiny />
                 <div>Here will be some credit card application stuff</div>
                 <MarginTiny />
-                <div>Here will be some quantity/color stuff</div>
+                <Stock product={this.state.product}/>
             </WidgetArea>
         )
     }

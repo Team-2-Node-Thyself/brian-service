@@ -32,7 +32,7 @@ const getProductColor = (id, color, cb) => {
         if(err) {
             cb(err, null);
         } else {
-            let queryStr = 'select color from product where product_name = ? AND color != ?';
+            let queryStr = 'select color, stock from product where product_name = ? AND color != ?';
             connection.query(queryStr, [result[0].product_name, color], (err, result) => {
                 if(err) {
                     cb(err, null);
