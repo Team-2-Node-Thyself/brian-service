@@ -6,8 +6,13 @@ import Price from './Price.jsx';
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2 1fr);
-    gird-template-rows: repeat (3 1fr);
+    grid-template-rows: repeat (3 1fr);
     border: 5px solid magenta;
+`;
+
+const BrokenP = styled.div`
+    grid-column: 1;
+    grid-row: 1;
 `;
 
 class App extends React.Component {
@@ -37,11 +42,9 @@ class App extends React.Component {
                 {Object.keys(this.state.product).length > 0 &&
                     <Price product={this.state.product}/> }
                 {Object.keys(this.state.product).length === 0 &&
-                    <div>Something is wrong. Unless you paused as the page is rendering, this should never show up.</div>
+                    <BrokenP>Something is wrong. Unless you paused as the page is rendering, this should never show up.</BrokenP>
                 }
             </WidgetArea>
-                <WidgetArea>This is another widget area</WidgetArea>
-                <WidgetArea>This si the last widget area</WidgetArea>
             </>
         )
     }
