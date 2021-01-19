@@ -7,13 +7,23 @@ import Stock from './Stock.jsx';
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2 1fr);
-    grid-template-rows: repeat (5 1fr);
+    grid-template-rows: repeat (8 1fr);
     border: 5px solid magenta;
 `;
 
 const BrokenP = styled.div`
     grid-column: 1;
     grid-row: 1;
+`;
+
+const DisPri = styled.div`
+    grid-column: 1;
+    grid-row: 1;
+`;
+
+const DisStock = styled.div`
+    grid-column: 1;
+    grid-row: 5;
 `;
 
 const MarginTiny = styled.div`
@@ -51,11 +61,15 @@ class App extends React.Component {
                 }
                 {Object.keys(this.state.product).length > 0 &&
                 <>
-                    <Price product={this.state.product}/> 
+                    <DisPri>
+                        <Price product={this.state.product}/> 
+                    </DisPri>
                     <MarginTiny />
                     <div>Here will be some credit card application stuff</div>
                     <MarginTiny />
-                    <Stock product={this.state.product}/>
+                    <DisStock>
+                        <Stock product={this.state.product}/>
+                    </DisStock>
                 </>}
             </WidgetArea>
         )
