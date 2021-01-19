@@ -46,15 +46,17 @@ class App extends React.Component {
     render() {
         return (
             <WidgetArea>
-                {Object.keys(this.state.product).length > 0 &&
-                    <Price product={this.state.product}/> }
                 {Object.keys(this.state.product).length === 0 &&
                     <BrokenP>Something is wrong. Unless you paused as the page is rendering, this should never show up.</BrokenP>
                 }
-                <MarginTiny />
-                <div>Here will be some credit card application stuff</div>
-                <MarginTiny />
-                <Stock product={this.state.product}/>
+                {Object.keys(this.state.product).length > 0 &&
+                <>
+                    <Price product={this.state.product}/> 
+                    <MarginTiny />
+                    <div>Here will be some credit card application stuff</div>
+                    <MarginTiny />
+                    <Stock product={this.state.product}/>
+                </>}
             </WidgetArea>
         )
     }
