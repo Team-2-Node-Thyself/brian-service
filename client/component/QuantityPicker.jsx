@@ -34,7 +34,6 @@ border-color: rgb(136, 136, 136);
 `;
 
 var QuantityPicker = (props) => {
-    debugger;
     let currStock = [];
     for(let i = 1; i < props.quantity; i++){
         if(i > 10){
