@@ -25,7 +25,8 @@ const DisPri = styled.div`
 
 const DisStock = styled.div`
     grid-column: 1;
-    grid-row: 5;
+    grid-row-start: 5;
+    grid-row-end: 8;
 `;
 
 const MarginTiny = styled.div`
