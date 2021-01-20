@@ -34,7 +34,6 @@ border-color: rgb(136, 136, 136);
 
 var QuantityPicker = (props) => {
     let currStock = [<option value="1">1</option>];
-    let OoS = false;
     // After looking at some of the other item pages on target, it seems like I pick more than 4 items if there are more items in stock.
     // I am not sure if Target wants to artifically limit how many items a customer can purchase,
     // or if it truly reflects their current availablitiy of the stock they have
