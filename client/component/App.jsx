@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 15%);
+    grid-template-rows: repeat(8, 12%);
     border: 5px solid magenta;
     width: 50%;
     grid-gap: 20px;
