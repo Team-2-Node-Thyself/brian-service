@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import QuantityPicker from './QuantityPicker.jsx';
+import ColorOpt from './ColorOpt.jsx';
 
 class Stock extends React.Component {
     constructor(props){
@@ -8,11 +10,28 @@ class Stock extends React.Component {
         this.state = {
             // Will keep track of things here. Have not decide what
             // Most likely the different color options available after we do an axios call to server for colors options
+            colors: [],
+            showQuantity: false,
         }
     }
 
+    componentDidMount() {
+        let {id, color} = this.props.product;
+        axios.get(`api/product/${id}/${color}`)
+        .then((response) => {
+            this.setState({
+                colors: response.data
+            });
+        }).catch((err) => {
+            console.log(`There was an error loading data from the data base: ${err}`);
+        })
+    }
+
     render() {
-        return <div>This is the Stock and Color component. It is being constructed right now.</div>;
+        return (<>
+            <QuantityPicker quantity={this.props.product.stock} />
+            <ColorOpt currColor={this.props.product.color} otherColors={this.state.colors}/>
+        </>);
     }
 }
 
