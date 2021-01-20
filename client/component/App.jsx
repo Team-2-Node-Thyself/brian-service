@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Price from './Price.jsx';
 import Stock from './Stock.jsx';
 import CheckoutForm from './CheckoutForm.jsx';
+import PickUp from './PickUp.jsx';
 
 const WidgetArea = styled.div`
     display: grid;
@@ -97,9 +98,9 @@ class App extends React.Component {
                     <DisStock>
                         <Stock product={this.state.product}/>
                     </DisStock>
-                    <LocalStock><CheckoutForm></CheckoutForm></LocalStock>
-                    <SameDayDeliver><CheckoutForm/></SameDayDeliver>
-                    <OnlineDeliver><CheckoutForm/></OnlineDeliver>
+                    <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
+                    <SameDayDeliver><CheckoutForm buttonText='Deliver it'/></SameDayDeliver>
+                    <OnlineDeliver><CheckoutForm buttonText='Ship it'/></OnlineDeliver>
                 </>}
             </WidgetArea>
         )
