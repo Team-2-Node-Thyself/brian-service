@@ -50,6 +50,7 @@
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
       "^react(.*)$": "<rootDir>/vendor/react-master$1",
       "^config$": "<rootDir>/configs/app-config.js"
-    }
+    },
+    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
   }
 }
