@@ -9,6 +9,8 @@ const WidgetArea = styled.div`
     grid-template-columns: repeat(2 1fr);
     grid-template-rows: repeat (8 1fr);
     border: 5px solid magenta;
+    width: 50%;
+    grid-gap: 20px;
 `;
 
 const BrokenP = styled.div`

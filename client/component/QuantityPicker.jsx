@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styled-components';
+import style, { css } from 'styled-components';
 
 let Quantity = style.div`
     display: flex;
@@ -30,12 +30,24 @@ border-radius: 4px;
 color: rgb(51, 51, 51);
 background-color: rgb(255, 255, 255);
 border-color: rgb(136, 136, 136);
-}
 `;
 
 var QuantityPicker = (props) => {
-    let currStock = [];
-    for(let i = 1; i < props.quantity; i++){
+    let currStock = [<option value="1">1</option>];
+    let OoS = false;
+    // After looking at some of the other item pages on target, it seems like I pick more than 4 items if there are more items in stock.
+    // I am not sure if Target wants to artifically limit how many items a customer can purchase,
+    // or if it truly reflects their current availablitiy of the stock they have
+    // (Or could be both).
+    // So I decided to artifically limit the quantity amount to 10 if there are more than 10 of the items in stock
+    // If there are less then 10, I will only display that much.
+    //
+    // In cases where there are no stock available. It looks like I can still interact with the quantity selector to at least have 1,
+    // but the local check out button is removed and a out of stock message is rendered
+    // (Example: Nintendo Switch on Target.com [at least in my area])
+    // Altering values to reflect that:
+    // Will always have 1 item selectable in quantity.
+    for(let i = 2; i < props.quantity; i++){
         if(i > 10){
             break;
         }
@@ -44,7 +56,7 @@ var QuantityPicker = (props) => {
     return (
         <>
         <Quantity>Quantity</Quantity>
-            <Picker>
+        <Picker>
             {currStock}
         </Picker>
         </>
