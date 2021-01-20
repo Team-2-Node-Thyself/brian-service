@@ -34,6 +34,29 @@ const MarginTiny = styled.div`
     margin-bottom: 16px !important;
     border-bottom: 1px solid black;
 `;
+const CreditApp = styled.div`
+    grid-column: 1;
+    grid-row: 3;
+`;
+const LocalStock = styled.div`
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background: lightgray;
+`;
+
+const SameDayDeliver = styled.div`
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    background: khaki;
+`;
+const OnlineDeliver = styled.div`
+    grid-column: 2;
+    grid-row-start: 5;
+    grid-row-end: 8;
+    background: pink;
+`;
 
 class App extends React.Component {
     constructor(){
@@ -67,11 +90,14 @@ class App extends React.Component {
                         <Price product={this.state.product}/> 
                     </DisPri>
                     <MarginTiny />
-                    <div>Here will be some credit card application stuff</div>
+                    <CreditApp>Here will be some credit card application stuff</CreditApp>
                     <MarginTiny />
                     <DisStock>
                         <Stock product={this.state.product}/>
                     </DisStock>
+                    <LocalStock>This is where the local stock information will go</LocalStock>
+                    <SameDayDeliver>This is where the same day deliver button will go</SameDayDeliver>
+                    <OnlineDeliver>This is where the online Deliver button will go</OnlineDeliver>
                 </>}
             </WidgetArea>
         )
