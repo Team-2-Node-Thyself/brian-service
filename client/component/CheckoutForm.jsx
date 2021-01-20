@@ -1,9 +1,15 @@
 import React from 'react';
 import style from 'styled-components';
 
+const Fulfillment = style.div`
+    display: flex;
+    border: 5px dotted maroon;
+`;
+
 function CheckoutForm(props) {
+
     return (
-        <p>This is where a generic checkout form. I will use the composition characteristic of React to create 3 checkout forms</p>
+        <Fulfillment>{props.children}</Fulfillment>
     )
 };
 
