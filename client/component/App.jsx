@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Price from './Price.jsx';
 import Stock from './Stock.jsx';
+import CheckoutForm from './CheckoutForm.jsx';
 
 const WidgetArea = styled.div`
     display: grid;
@@ -96,9 +97,9 @@ class App extends React.Component {
                     <DisStock>
                         <Stock product={this.state.product}/>
                     </DisStock>
-                    <LocalStock>This is where the local stock information will go</LocalStock>
-                    <SameDayDeliver>This is where the same day deliver button will go</SameDayDeliver>
-                    <OnlineDeliver>This is where the online Deliver button will go</OnlineDeliver>
+                    <LocalStock><CheckoutForm></CheckoutForm></LocalStock>
+                    <SameDayDeliver><CheckoutForm/></SameDayDeliver>
+                    <OnlineDeliver><CheckoutForm/></OnlineDeliver>
                 </>}
             </WidgetArea>
         )
