@@ -6,6 +6,7 @@ const Fulfillment = style.div`
     border: 5px dotted maroon;
 `;
 const FulfillmentButton = style.button`
+    font-size: 15px;
     flex-basis: 50%;
     background-color: rgb(204, 0, 0);
     color: white;
@@ -19,6 +20,8 @@ const FulfillmentButton = style.button`
     margin: 0px;
     border-radius: 4px;
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
     &:active{ 
         background-color: rgb(121, 0, 0);
