@@ -111,7 +111,7 @@ class App extends React.Component {
                         <DisPri>
                             <Price product={this.state.product}/> 
                         </DisPri>
-                        <CreditApp><PaymentPlans /></CreditApp>
+                        <CreditApp><PaymentPlans price={this.state.product.price} /></CreditApp>
                         <DisStock>
                             <Stock product={this.state.product}/>
                         </DisStock>

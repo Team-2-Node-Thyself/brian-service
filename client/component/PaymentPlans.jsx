@@ -24,10 +24,23 @@ const SButton = styled.button`
     }
 `;
 
+const PPOr = styled.div`
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px 0px;
+`;
+
+const PPOption = styled.div`
+`;
+
 let PaymentPlans = (props) => {
+    let {price} = props;
     return (
         <>
         <Savings>Save 5% every day with ArrowCard</Savings>
+        <SButton>Learn More</SButton>
+        <PPOr>Or</PPOr>
+        <PPOption>Starting at $14.44/month on $100+ orders with</PPOption>
         <SButton>Learn More</SButton>
         </>
     );
