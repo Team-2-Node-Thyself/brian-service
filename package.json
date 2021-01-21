@@ -18,7 +18,10 @@
 
       "^config$": "<rootDir>/configs/app-config.js"
     },
-    "setupFilesAfterEnv": ["<rootDir>package.json"]
+    "setupFilesAfterEnv": ["<rootDir>package.json"],
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    }
   },
   "scripts": {
     "start": "nodemon server",
