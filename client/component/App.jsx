@@ -5,6 +5,8 @@ import Price from './Price.jsx';
 import Stock from './Stock.jsx';
 import CheckoutForm from './CheckoutForm.jsx';
 import PickUp from './PickUp.jsx';
+import SameDay from './SameDay.jsx';
+import Delivery from './Delivery.jsx';
 
 const GlobalStyle = createGlobalStyle`
     div{
@@ -39,8 +41,8 @@ const DisStock = styled.div`
 
 const MarginTiny = styled.div`
     grid-column: 1;
-    margin-top: 16px !important;
-    margin-bottom: 16px !important;
+    margin-top: 16px;
+    margin-bottom: 16px;
     border-bottom: 1px solid black;
 `;
 const CreditApp = styled.div`
@@ -107,8 +109,8 @@ class App extends React.Component {
                             <Stock product={this.state.product}/>
                         </DisStock>
                         <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
-                        <SameDayDeliver><CheckoutForm buttonText='Deliver it'/></SameDayDeliver>
-                        <OnlineDeliver><CheckoutForm buttonText='Ship it'/></OnlineDeliver>
+                        <SameDayDeliver><CheckoutForm buttonText='Deliver it'><SameDay /></CheckoutForm></SameDayDeliver>
+                        <OnlineDeliver><CheckoutForm buttonText='Ship it'><Delivery price={this.state.product.price} discount={this.state.product.discount}/></CheckoutForm></OnlineDeliver>
                     </>}
                 </WidgetArea>
             </>
