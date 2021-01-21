@@ -1,7 +1,15 @@
 import React from 'react';
 import {shallow, mount, render} from 'enzyme';
+import sinon from 'sinon';
+import App from '../client/component/App.jsx';
 
-import App from './client/component/App.jsx';
+describe('<App />', ()=> {
+    it('calls componentDidMount', () => {
+        sinon.spy(App.prototype, 'componentDidMount');
+        const wrapper = mount(<App />);
+        expect(App.prototype.componentDidMount).to.have.property('callCount', 1);
+      });
+});
 
 /**
  * This is where I would test the App component.
