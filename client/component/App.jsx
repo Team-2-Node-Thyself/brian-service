@@ -55,6 +55,8 @@ const CreditApp = styled.div`
     border-style: solid;
     grid-column: 1;
     grid-row: 2/ span 3;
+    display: flex;
+    flex-direction: column;
 `;
 const LocalStock = styled.div`
     grid-column: 2;
