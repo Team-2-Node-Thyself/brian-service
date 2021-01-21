@@ -7,7 +7,6 @@ const SDTAOne = styled.div`
 
 const SDTitle = styled.span`
     grid-area: mes;
-    color: rgb(0, 102, 1);
     font-weight: bold;
 `;
 
