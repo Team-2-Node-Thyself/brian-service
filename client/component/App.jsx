@@ -7,6 +7,7 @@ import CheckoutForm from './CheckoutForm.jsx';
 import PickUp from './PickUp.jsx';
 import SameDay from './SameDay.jsx';
 import Delivery from './Delivery.jsx';
+import PaymentPlans from './PaymentPlans.jsx';
 
 const GlobalStyle = createGlobalStyle`
     div{
@@ -30,7 +31,7 @@ const BrokenP = styled.div`
 
 const DisPri = styled.div`
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1/span 1;
 `;
 
 const DisStock = styled.div`
@@ -41,13 +42,19 @@ const DisStock = styled.div`
 
 const MarginTiny = styled.div`
     grid-column: 1;
+    grid-row: 4;
     margin-top: 16px;
     margin-bottom: 16px;
     border-bottom: 1px solid black;
 `;
 const CreditApp = styled.div`
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-width: 1px 0 1px 0;
+    border-color: black;
+    border-style: solid;
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2/ span 3;
 `;
 const LocalStock = styled.div`
     grid-column: 2;
@@ -102,9 +109,7 @@ class App extends React.Component {
                         <DisPri>
                             <Price product={this.state.product}/> 
                         </DisPri>
-                        <MarginTiny />
-                        <CreditApp>Here will be some credit card application stuff</CreditApp>
-                        <MarginTiny />
+                        <CreditApp><PaymentPlans /></CreditApp>
                         <DisStock>
                             <Stock product={this.state.product}/>
                         </DisStock>
