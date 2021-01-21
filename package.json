@@ -51,6 +51,6 @@
       "^react(.*)$": "<rootDir>/vendor/react-master$1",
       "^config$": "<rootDir>/configs/app-config.js"
     },
-    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
+    "setupFilesAfterEnv": ["<rootDir>test/setupTests.js"]
   }
 }
