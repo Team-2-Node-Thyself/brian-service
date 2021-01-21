@@ -4,9 +4,9 @@ import style from 'styled-components';
 
 const Fulfillment = style.div`
     display: flex;
-    flex-direction: column;
     border: 5px dotted maroon;
-    background: lightgray;
+    background: rgb(247, 247, 247);
+    padding: 12px 16px;
 `;
 const FulfillmentButton = style.button`
     font-size: 15px;
@@ -41,14 +41,11 @@ const FulfillmentButton = style.button`
      };
 `;
 
-const FFAreaOne = styled.div``;
-
 function CheckoutForm(props) {
 
     return (
         <Fulfillment>
-            <FFAreaOne>{props.children}<FulfillmentButton>{props.buttonText}</FulfillmentButton></FFAreaOne>
-            <FFAreaTwo></FFAreaTwo>
+            {props.children}<FulfillmentButton>{props.buttonText}</FulfillmentButton>
         </Fulfillment>
     )
 };

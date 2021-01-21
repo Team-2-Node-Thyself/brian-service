@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PickUpTextArea1 = styled.div`
+const PickUpTextArea = styled.div`
     flex-basis: 50%;
     padding-right 4px !important;
-`;
-
-const PickUpTextArea2 = styled.div`
-    order: 3;
-    flex-wrap: wrap;
-    align-content: flex-end;
 `;
 
 const PUTitle = styled.span`
@@ -47,17 +41,21 @@ const PUReady = styled.div`
     font-size: 14px !important;
 `;
 
+const PUAisle = styled.div`
+    margin-top: 4px !important;
+    font-size: 12px !important;
+`;
+
 function PickUp() {
  return (
      <>
-    <PickUpTextArea1>
+    <PickUpTextArea>
         <PUTitle>Pick up today </PUTitle><span>at</span>
         <PULocation>New United States Mars</PULocation>
         <PUEdit>Edit store</PUEdit>
-    </PickUpTextArea1>
-    <PickUpTextArea2>
         <PUReady>Ready within 2 hours for pickup inside the store.</PUReady>
-    </PickUpTextArea2>
+        <PUAisle>Aisle C47</PUAisle>
+    </PickUpTextArea>
     </>
  );
 };
