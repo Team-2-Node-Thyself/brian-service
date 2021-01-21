@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import style from 'styled-components';
 
-const Fulfillment = style.div`
+const Fulfillment = styled.div`
     display: flex;
     border: 5px dotted maroon;
     background: rgb(247, 247, 247);
     padding: 12px 16px;
 `;
-const FulfillmentButton = style.button`
+const FulfillmentButton = styled.button`
     font-size: 15px;
     flex-basis: 50%;
     background-color: rgb(204, 0, 0);
