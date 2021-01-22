@@ -42,7 +42,7 @@ let PaymentPlans = (props) => {
         { (price > 50) && 
         <>
             <PPOr>Or</PPOr>
-            <PPDivs>Starting at <PPBold>${((125*.15)+125).toFixed(2)}/month</PPBold> on $100+ orders with <PPBold>affirm</PPBold></PPDivs>
+            <PPDivs>Starting at <PPBold>${((125/12*.15)+(125/12)).toFixed(2)}/month</PPBold> on $100+ orders with <PPBold>affirm</PPBold></PPDivs>
             <SButton>Learn More</SButton>
         </>
         }
