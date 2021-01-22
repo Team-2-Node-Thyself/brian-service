@@ -4,12 +4,15 @@ import styled from 'styled-components';
 const Insurance = styled.label`
 `;
 
-let InsuranceOption = () => {
+let InsuranceOption = (props) => {
     return (
+        <div>
         <form>
             <input type='checkbox' />
-            <Insurance>This is an insurance option. Please check it and gimme more money.</Insurance>
+            <Insurance>Allstate 2 Year Headphones & Speakers Protection Plan with Accidents coverage</Insurance>
+            <span>$5.00</span><span><a href='#'>See plan details</a></span>
         </form>
+        </div>
 
     );
 };
