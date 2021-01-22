@@ -1,13 +1,24 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Price from './Price.jsx';
 import Stock from './Stock.jsx';
+import CheckoutForm from './CheckoutForm.jsx';
+import PickUp from './PickUp.jsx';
+import SameDay from './SameDay.jsx';
+import Delivery from './Delivery.jsx';
+import PaymentPlans from './PaymentPlans.jsx';
+
+const GlobalStyle = createGlobalStyle`
+    div{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+`;
 
 const WidgetArea = styled.div`
     display: grid;
-    grid-template-columns: repeat(2 1fr);
-    grid-template-rows: repeat (8 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 15%);
     border: 5px solid magenta;
     width: 50%;
     grid-gap: 20px;
@@ -20,19 +31,51 @@ const BrokenP = styled.div`
 
 const DisPri = styled.div`
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1/span 1;
 `;
 
 const DisStock = styled.div`
     grid-column: 1;
-    grid-row: 5;
+    grid-row-start: 5;
+    grid-row-end: 5;
 `;
 
 const MarginTiny = styled.div`
     grid-column: 1;
-    margin-top: 16px !important;
-    margin-bottom: 16px !important;
+    grid-row: 4;
+    margin-top: 16px;
+    margin-bottom: 16px;
     border-bottom: 1px solid black;
+`;
+const CreditApp = styled.div`
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-width: 1px 0 1px 0;
+    border-color: black;
+    border-style: solid;
+    grid-column: 1;
+    grid-row: 2/ span 3;
+    display: flex;
+    flex-direction: column;
+`;
+const LocalStock = styled.div`
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background: lightgray;
+`;
+
+const SameDayDeliver = styled.div`
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    background: khaki;
+`;
+const OnlineDeliver = styled.div`
+    grid-column: 2;
+    grid-row-start: 5;
+    grid-row-end: 7;
+    background: pink;
 `;
 
 class App extends React.Component {
@@ -57,23 +100,27 @@ class App extends React.Component {
 
     render() {
         return (
-            <WidgetArea>
-                {Object.keys(this.state.product).length === 0 &&
-                    <BrokenP>Something is wrong. Unless you paused as the page is rendering, this should never show up.</BrokenP>
-                }
-                {Object.keys(this.state.product).length > 0 &&
-                <>
-                    <DisPri>
-                        <Price product={this.state.product}/> 
-                    </DisPri>
-                    <MarginTiny />
-                    <div>Here will be some credit card application stuff</div>
-                    <MarginTiny />
-                    <DisStock>
-                        <Stock product={this.state.product}/>
-                    </DisStock>
-                </>}
-            </WidgetArea>
+            <>
+            <GlobalStyle/>
+                <WidgetArea>
+                    {Object.keys(this.state.product).length === 0 &&
+                        <BrokenP>Something is wrong. Unless you paused as the page is rendering, this should never show up.</BrokenP>
+                    }
+                    {Object.keys(this.state.product).length > 0 &&
+                    <>
+                        <DisPri>
+                            <Price product={this.state.product}/> 
+                        </DisPri>
+                        <CreditApp><PaymentPlans /></CreditApp>
+                        <DisStock>
+                            <Stock product={this.state.product}/>
+                        </DisStock>
+                        <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
+                        <SameDayDeliver><CheckoutForm buttonText='Deliver it'><SameDay /></CheckoutForm></SameDayDeliver>
+                        <OnlineDeliver><CheckoutForm buttonText='Ship it'><Delivery price={this.state.product.price} discount={this.state.product.discount}/></CheckoutForm></OnlineDeliver>
+                    </>}
+                </WidgetArea>
+            </>
         )
     }
 }

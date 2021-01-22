@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import QuantityPicker from './QuantityPicker.jsx';
 import ColorOpt from './ColorOpt.jsx';
 
+const StockArea = styled.div`
+    border: 5px dashed cyan;
+`;
+
 class Stock extends React.Component {
     constructor(props){
         super(props);
@@ -28,10 +32,10 @@ class Stock extends React.Component {
     }
 
     render() {
-        return (<>
+        return (<StockArea>
             <QuantityPicker quantity={this.props.product.stock} />
             <ColorOpt currColor={this.props.product.color} otherColors={this.state.colors}/>
-        </>);
+        </StockArea>);
     }
 }
 
