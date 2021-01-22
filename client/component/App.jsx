@@ -36,8 +36,7 @@ const DisPri = styled.div`
 
 const DisStock = styled.div`
     grid-column: 1;
-    grid-row-start: 5;
-    grid-row-end: 5;
+    grid-row: 4;
 `;
 
 const MarginTiny = styled.div`
@@ -54,7 +53,7 @@ const CreditApp = styled.div`
     border-color: black;
     border-style: solid;
     grid-column: 1;
-    grid-row: 2/ span 3;
+    grid-row: 2/ span 2;
     display: flex;
     flex-direction: column;
 `;
@@ -111,7 +110,7 @@ class App extends React.Component {
                         <DisPri>
                             <Price product={this.state.product}/> 
                         </DisPri>
-                        <CreditApp><PaymentPlans price={this.state.product.price} /></CreditApp>
+                        <CreditApp><PaymentPlans price={this.state.product.price}/></CreditApp>
                         <DisStock>
                             <Stock product={this.state.product}/>
                         </DisStock>

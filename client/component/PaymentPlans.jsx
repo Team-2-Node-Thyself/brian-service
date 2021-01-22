@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Savings = styled.div`
+const PPDivs = styled.div`
     font-size: 14px;
 `;
 
@@ -24,24 +24,28 @@ const SButton = styled.button`
     }
 `;
 
-const PPOr = styled.div`
+const PPBold = styled.span`
     font-weight: bold;
     font-size: 14px;
-    padding: 12px 0px;
 `;
 
-const PPOption = styled.div`
+const PPOr = styled(PPBold)`
+    padding: 12px 0px;
 `;
 
 let PaymentPlans = (props) => {
     let {price} = props;
     return (
         <>
-        <Savings>Save 5% every day with ArrowCard</Savings>
+        <PPDivs>Save 5% every day with ArrowCard</PPDivs>
         <SButton>Learn More</SButton>
-        <PPOr>Or</PPOr>
-        <PPOption>Starting at $14.44/month on $100+ orders with</PPOption>
-        <SButton>Learn More</SButton>
+        { (price > 50) && 
+        <>
+            <PPOr>Or</PPOr>
+            <PPDivs>Starting at <PPBold>${((125*.15)+125).toFixed(2)}/month</PPBold> on $100+ orders with <PPBold>affirm</PPBold></PPDivs>
+            <SButton>Learn More</SButton>
+        </>
+        }
         </>
     );
 }
