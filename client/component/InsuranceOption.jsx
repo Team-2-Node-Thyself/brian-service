@@ -12,13 +12,22 @@ const Insurance = styled.div`
         left: 0px;
         width: 20px;
         height: 20px;
-        background-color: white;
-        border: 1px solid rgb(136, 136, 136);
+        background-color: ${props => props.checkbox ? 'rgb(204, 0, 0)' : 'white'};
+        border-width: 1px;
+        border-style: solid;
+        border-color: ${props => props.checkbox ? 'rgb(204, 0, 0)' :'rgb(136, 136, 136)'};
         border-radius: 3px;
         transition-timing-function: ease-out;
         transition-duration: 200ms;
         transition-property: background-color, border-color;
     }
+    outline: ${props => props.checkbox && 'rgb(0, 0, 0) dashed 1px'};
+    outline-offset: ${props => props.checkbox && '3px'}
+
+`;
+
+const Checkbox = styled.div`
+    display: ${props => props.checkbox ? '' : 'none'};
     &::after{
         position: absolute;
         content: "";
@@ -31,7 +40,7 @@ const Insurance = styled.div`
         border-top: 0px;
         border-left: 0px;
         transform: rotate(33deg);
-        animation: 250ms ease-in-out 0s 1 normal forwards running eWDJnQ;
+        animation: 300ms ease-in-out 0s 1 normal forwards running;
     }
 `;
 
@@ -60,14 +69,30 @@ const DetailPlans = styled.a`
     }
 `;
 
-let InsuranceOption = () => {
-    return (
-        <Insurance>
-            <PlainText>Allstate 2 Year Headphones & Speakers Protection Plan with Accidents coverage</PlainText>
-            <EstPrice>$5.00 </EstPrice><span><DetailPlans href='#'>See plan details</DetailPlans></span>
-        </Insurance>
+class InsuranceOption extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            isChecked: false
+        };
+    }
 
-    );
+    toggleCheck(event) {
+        event.preventDefault();
+        this.setState((state) => {
+            return {isChecked: !state.isChecked}
+        })
+    }
+    render(){
+        return (
+            <Insurance checkbox={this.state.isChecked} onClick={this.toggleCheck.bind(this)}>
+                <Checkbox checkbox={this.state.isChecked}></Checkbox>
+                <PlainText>Quiver 2 Year Pet Toy Protection Plan with Accidents coverage</PlainText>
+                <EstPrice>$5.00 </EstPrice><span><DetailPlans href='#'>See plan details</DetailPlans></span>
+            </Insurance>
+    
+        );
+    }
 };
 
 export default InsuranceOption;
