@@ -12,7 +12,8 @@ import PaymentPlans from './PaymentPlans.jsx';
 const GlobalStyle = createGlobalStyle`
     div{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
+        color: rgb(51, 51, 51);
+    },
 `;
 
 const WidgetArea = styled.div`
