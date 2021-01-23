@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import QuantityPicker from './QuantityPicker.jsx';
 import ColorOpt from './ColorOpt.jsx';
+import InsuranceOption from './InsuranceOption.jsx';
 
 const StockArea = styled.div`
     border: 5px dashed cyan;
@@ -35,6 +36,7 @@ class Stock extends React.Component {
         return (<StockArea>
             <QuantityPicker quantity={this.props.product.stock} />
             <ColorOpt currColor={this.props.product.color} otherColors={this.state.colors}/>
+            <InsuranceOption />
         </StockArea>);
     }
 }
