@@ -40,13 +40,6 @@ const DisStock = styled.div`
     grid-row: 4;
 `;
 
-const MarginTiny = styled.div`
-    grid-column: 1;
-    grid-row: 4;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid black;
-`;
 const CreditApp = styled.div`
     padding-top: 32px;
     padding-bottom: 32px;
