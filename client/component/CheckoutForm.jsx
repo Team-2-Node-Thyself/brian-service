@@ -4,19 +4,19 @@ import styled from 'styled-components';
 const Fulfillment = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 1fr 28px 28px;
+    grid-template-rows: 1fr 28px 16px;
     grid-template-areas: 
     "mes button"
     "avail avail"
     "misc misc";
-    row-gap: 10px
-    border: 5px dotted maroon;
+    row-gap: 10px;
     background: rgb(247, 247, 247);
     padding: 12px 16px;
 `;
 const FulfillmentButton = styled.button`
     font-size: 15px;
     grid-area: button;
+    cursor: pointer;
     background-color: rgb(204, 0, 0);
     color: white;
     border: 1px solid rgb(204, 0, 0);

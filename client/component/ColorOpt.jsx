@@ -18,7 +18,11 @@ const ColorButton = style.button`
     border-width: 2px;
     overflow: visible;
 
-
+    &:active{
+        color: rgb(255, 255, 255);
+        background-color: rgb(51, 51, 51);
+        border-color: rgb(51, 51, 51);
+    }
 `;
 
 const ColorBorders = style(ColorButton)`
@@ -69,6 +73,10 @@ const OutOfStock = style.div`
     font-size: 10px;
     line-height: 1;
     padding: 4px;
+
+    &:active{
+        color: white;
+    }
 `;
 
 var ColorOpt = (props) => {

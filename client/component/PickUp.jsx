@@ -13,6 +13,7 @@ const PUTitle = styled.span`
 
 const PULocation = styled.button`
     grid-area: mes;
+    cursor: pointer;
     text-align: left;
     font-weight: bold;
     position: relative;
@@ -28,6 +29,7 @@ const PULocation = styled.button`
 
 const PUEdit = styled.button`
     grid-area: mes;
+    cursor: pointer;
     text-decoration: underline;
     font-size: 12px;
     font-family: inherit;
@@ -54,7 +56,7 @@ const PUAisle = styled.div`
 
 const PUTATwo = styled.div`
     grid-column: 1/span 2;
-    grid-row: 2/span 3;
+    grid-row: 2;
 `;
 function PickUp() {
  return (
