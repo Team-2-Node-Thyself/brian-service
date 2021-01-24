@@ -6,7 +6,7 @@ import ColorOpt from './ColorOpt.jsx';
 import InsuranceOption from './InsuranceOption.jsx';
 
 const StockArea = styled.div`
-    border: 5px dashed cyan;
+    
 `;
 
 class Stock extends React.Component {
@@ -33,11 +33,11 @@ class Stock extends React.Component {
     }
 
     render() {
-        return (<StockArea>
+        return (<>
             <QuantityPicker quantity={this.props.product.stock} />
             <ColorOpt currColor={this.props.product.color} otherColors={this.state.colors}/>
             <InsuranceOption />
-        </StockArea>);
+        </>);
     }
 }
 

@@ -19,9 +19,8 @@ const GlobalStyle = createGlobalStyle`
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 15%);
-    border: 5px solid magenta;
-    width: 50%;
+    grid-template-rows: 60px 15% 15% 15% 15% 15%;
+    width: 50%; 
     grid-gap: 20px;
 `;
 
@@ -55,20 +54,17 @@ const LocalStock = styled.div`
     grid-column: 2;
     grid-row-start: 1;
     grid-row-end: 3;
-    background: lightgray;
 `;
 
 const SameDayDeliver = styled.div`
     grid-column: 2;
     grid-row-start: 3;
     grid-row-end: 5;
-    background: khaki;
 `;
 const OnlineDeliver = styled.div`
     grid-column: 2;
     grid-row-start: 5;
     grid-row-end: 7;
-    background: pink;
 `;
 
 class App extends React.Component {
