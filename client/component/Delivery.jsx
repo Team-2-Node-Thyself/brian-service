@@ -23,6 +23,7 @@ const DelEdit = styled.button`
     font-family: inherit;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 
     &:focus{
         outline: 1px dashed black;

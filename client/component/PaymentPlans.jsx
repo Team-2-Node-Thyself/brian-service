@@ -10,6 +10,7 @@ const SButton = styled.button`
     font-size: 14px;
     position: relative;
     border: none;
+    cursor: pointer;
     background-color: transparent;
     text-decoration: underline;
     display: flex;

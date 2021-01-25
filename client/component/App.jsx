@@ -12,15 +12,15 @@ import PaymentPlans from './PaymentPlans.jsx';
 const GlobalStyle = createGlobalStyle`
     div{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
+        color: rgb(51, 51, 51);
+    },
 `;
 
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 15%);
-    border: 5px solid magenta;
-    width: 50%;
+    grid-template-rows: 60px 15% 15% 60px 15% 15%;
+    width: 50%; 
     grid-gap: 20px;
 `;
 
@@ -39,13 +39,6 @@ const DisStock = styled.div`
     grid-row: 4;
 `;
 
-const MarginTiny = styled.div`
-    grid-column: 1;
-    grid-row: 4;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid black;
-`;
 const CreditApp = styled.div`
     padding-top: 32px;
     padding-bottom: 32px;
@@ -61,20 +54,19 @@ const LocalStock = styled.div`
     grid-column: 2;
     grid-row-start: 1;
     grid-row-end: 3;
-    background: lightgray;
 `;
 
 const SameDayDeliver = styled.div`
+
     grid-column: 2;
     grid-row-start: 3;
-    grid-row-end: 5;
-    background: khaki;
+    grid-row-end: 4;
 `;
 const OnlineDeliver = styled.div`
+    margin: 5px 0px;
     grid-column: 2;
     grid-row-start: 5;
     grid-row-end: 7;
-    background: pink;
 `;
 
 class App extends React.Component {
