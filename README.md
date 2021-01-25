@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> A General sales and checkout portion for the product on the page.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/iron-people-fec/similar-items
+  - https://github.com/iron-people-fec/review-section
+  - https://github.com/iron-people-fec/product_images
 
 ## Table of Contents
 
@@ -17,7 +16,13 @@
 
 ## Usage
 
-> Some usage instructions
+> Run `npm install`
+> Run `mysql -u root < path/to/schema.sql` to create the database
+> Run `npm seed` to seed the database with seeding data
+> Run `npm watch` to create the bundle.js file (watch flag is attached, remove if necessary)
+> Run `npm start` to start the server (with nodemon, remove if necessary)
+
+> My app's GET request will be `/product/:id` where `:id` is the unique integar that correspond to the item's key in the database.
 
 ## Requirements
 
@@ -32,8 +37,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
+```
 npm install
 ```
 
