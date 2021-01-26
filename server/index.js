@@ -14,7 +14,7 @@ app.use(parser.json());
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
 app.use('/bundle', express.static('public/bundle.js'))
 
-app.get('/api/product/:id', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
     let _id = req.params.id;
     db.getProduct(_id, (err, result) => {
         if(err){
@@ -29,7 +29,7 @@ app.get('/api/product/:id', (req, res) => {
     });
 });
 
-app.get('/api/product/:id/:color', (req, res) => {
+app.get('/api/products/:id/:color', (req, res) => {
     let _id = req.params.id, _color = req.params.color;
     db.getProductColor(_id, _color, (err, result) => {
         if(err){
