@@ -79,7 +79,8 @@ class App extends React.Component {
     componentDidMount(){
         // need to double check what window.location.pathname actually is
         // when looking at the root on chromo devtool, it is just '/' and not 'localhost:8000/'
-        let productId = window.location.pathname || '/product/1';
+        let productId = window.location.pathname || '/products/1';
+
         // pressuming that we are only loading one page for this app
         // load the first product for this app.
         axios.get(`http://localhost:8003/api${productId}`)
