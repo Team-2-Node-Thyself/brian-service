@@ -2,12 +2,17 @@ const express = require('express');
 const parser = require('body-parser');
 const path = require('path');
 const db = require('./database');
+const cors = require('cors');
 
 const PORT= 8003;
 const app = express();
 
+app.use(cors({
+    origin: 'http:localhost:8000'
+}))
 app.use(parser.json());
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/', express.static(path.join(__dirname, '..', 'public')));
+app.use('/bundle', express.static('public/bundle.js'))
 
 app.get('/api/product/:id', (req, res) => {
     let _id = req.params.id;
