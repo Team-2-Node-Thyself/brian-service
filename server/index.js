@@ -8,7 +8,7 @@ const PORT= 8003;
 const app = express();
 
 app.use(cors({
-    origin: 'http:localhost:8000'
+    origin: 'http://localhost:8000'
 }))
 app.use(parser.json());
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
@@ -30,7 +30,6 @@ app.get('/api/product/:id', (req, res) => {
 });
 
 app.get('/api/product/:id/:color', (req, res) => {
-    debugger;
     let _id = req.params.id, _color = req.params.color;
     db.getProductColor(_id, _color, (err, result) => {
         if(err){
