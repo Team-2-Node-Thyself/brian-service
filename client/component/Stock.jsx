@@ -22,7 +22,7 @@ class Stock extends React.Component {
 
     componentDidMount() {
         let {id, color} = this.props.product;
-        axios.get(`api/product/${id}/${color}`)
+        axios.get(`http://localhost:8003/api/product/${id}/${color}`)
         .then((response) => {
             this.setState({
                 colors: response.data

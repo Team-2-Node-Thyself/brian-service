@@ -1,5 +1,5 @@
 import React from 'react';
-import style, {css} from 'styled-components';
+import style from 'styled-components';
 
 const Variations = style.div`
     margin: 15px 0px;
