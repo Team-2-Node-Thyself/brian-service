@@ -4,8 +4,8 @@ let i = 0;
 
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'student',
+    password: 'Student5!',
     database: 'bullseye'
 })
 
