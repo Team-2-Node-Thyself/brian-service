@@ -34,7 +34,7 @@
     }
   },
   "scripts": {
-    "start": "node sever",
+    "start": "node server",
     "dev-start": "nodemon server",
     "build": "webpack",
     "watch": "webpack --watch",
