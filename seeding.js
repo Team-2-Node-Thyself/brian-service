@@ -1,6 +1,13 @@
-const db = require('./server/database/index');
+const mysql = require('mysql');
 const faker = require('faker/locale/en_US');
 let i = 0;
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'bullseye'
+})
 
 let queryStr = "INSERT INTO product (product_name, price, color, stock, discount) VALUES (?,?,?,?,?)";
 let product = [[
@@ -59,5 +66,3 @@ for(i = 6; i < 101; i++) {
         }
     })
 }
-
-process.exit;
