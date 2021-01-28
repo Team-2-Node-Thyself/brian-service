@@ -19,8 +19,10 @@
 > Run `npm install`
 > Run `mysql -u root < path/to/schema.sql` to create the database
 > Run `npm seed` to seed the database with seeding data
-> Run `npm watch` to create the bundle.js file (watch flag is attached, remove if necessary)
-> Run `npm start` to start the server (with nodemon, remove if necessary)
+> Run `npm build` to create the bundle.js file 
+> Run `npm watch` to create and update bundle.js when there is a change
+> Run `npm start` to start the server
+> Run `npm dev-start` to start the server with nodemon to watch and update with changes
 
 > My app's GET request will be `/product/:id` where `:id` is the unique integar that correspond to the item's key in the database.
 

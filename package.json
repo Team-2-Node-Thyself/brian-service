@@ -34,7 +34,9 @@
     }
   },
   "scripts": {
-    "start": "nodemon server",
+    "start": "node sever",
+    "dev-start": "nodemon server",
+    "build": "webpack",
     "watch": "webpack --watch",
     "seed": "node seeding.js",
     "test": "jest"
