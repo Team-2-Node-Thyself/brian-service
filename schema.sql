@@ -1,4 +1,4 @@
--- run: mysql -u root < path/to/schema.sql
+-- run: mysql -u root < schema.sql
 -- it runs this file with mysql
 
 CREATE DATABASE IF NOT EXISTS `bullseye`;

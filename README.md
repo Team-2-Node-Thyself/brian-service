@@ -17,7 +17,7 @@
 ## Usage
 
 > Run `npm install`
-> Run `mysql -u root < path/to/schema.sql` to create the database
+> Run `mysql -u root < schema.sql` to create the database
 > Run `npm seed` to seed the database with seeding data
 > Run `npm build` to create the bundle.js file 
 > Run `npm watch` to create and update bundle.js when there is a change
