@@ -40,7 +40,7 @@ let Price = (props) => {
     return (
         <PriceWidget>
             <PriceTitle discount={discount}>{discount ? `$${(price-disAmount).toFixed(2)}` : `$${price}`}<SalesTag discount={discount}>Sale</SalesTag></PriceTitle>
-            <ProductSavings discount={discount}>reg ${price} {discount ? `Save $${disAmount} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</ProductSavings>
+            <ProductSavings discount={discount}>reg ${price} {discount ? `Save $${disAmount.toFixed(2)} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</ProductSavings>
         </PriceWidget>
     );
 }

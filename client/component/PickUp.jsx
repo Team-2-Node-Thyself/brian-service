@@ -13,6 +13,8 @@ const PUTitle = styled.span`
 
 const PULocation = styled.button`
     grid-area: mes;
+    padding: 0;
+    color: rgb(51, 51, 51);
     cursor: pointer;
     text-align: left;
     font-weight: bold;
@@ -35,6 +37,9 @@ const PUEdit = styled.button`
     font-family: inherit;
     border: none;
     background-color: transparent;
+    color: rgb(51, 51, 51);
+    padding: 0;
+    margin-bottom: 15px;
 
     &:focus{
         outline: 1px dashed black;
@@ -62,9 +67,9 @@ function PickUp() {
  return (
      <>
     <PUTAOne>
-        <PUTitle>Pick up today </PUTitle><span>at</span>
+        <PUTitle>Pick up today </PUTitle><span>at </span>
         <PULocation>Sesame Street Mars</PULocation>
-        <PUEdit>Edit store</PUEdit>
+        <div><PUEdit>Edit store</PUEdit></div>
     </PUTAOne>
     <PUTATwo>
         <PUReady>Ready within 2 hours for pickup inside the store.</PUReady>

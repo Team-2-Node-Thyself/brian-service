@@ -8,7 +8,13 @@ const Variations = style.div`
 const ColorVar = style.div`
 display: flex;
 margin-top: 10px;
-justify-content: space-evenly;
+flex: 0 1 auto;
+flex-flow: row wrap;
+`;
+
+const ColorWrapper = style.div`
+    min-width: 45px;
+    margin: 0px 2px 4px;
 `;
 
 const ColorButton = style.button`
@@ -86,10 +92,10 @@ var ColorOpt = (props) => {
         <Title>color: <CurrColor>{currColor}</CurrColor></Title>
         <ColorVar>
 
-            <ColorBorders selected={true}><ColorSquare color={props.currColor} key={props.currColor+1}/></ColorBorders>
+            <ColorWrapper><ColorBorders selected={true}><ColorSquare color={props.currColor} key={props.currColor+1}/></ColorBorders></ColorWrapper>
             {
                 props.otherColors.map((colors, i) => {
-                    return <ColorBorders><ColorSquare color={colors.color} key={colors.color+i}><OutOfStock stock={colors.stock}>Out of Stock</OutOfStock></ColorSquare></ColorBorders>
+                    return <ColorWrapper><ColorBorders><ColorSquare color={colors.color} key={colors.color+i}><OutOfStock stock={colors.stock}>Out of Stock</OutOfStock></ColorSquare></ColorBorders></ColorWrapper>
                 })
             }
         </ColorVar>
