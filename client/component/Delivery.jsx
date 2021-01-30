@@ -24,7 +24,9 @@ const DelEdit = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-
+    color: rgb(51, 51, 51);
+    padding: 0;
+    margin-bottom: 15px;
     &:focus{
         outline: 1px dashed black;
     }
@@ -59,7 +61,7 @@ function Delivery(props) {
     <DelTAOne>
         <DelTitle>Deliver </DelTitle><span>to</span>
         <DelLocation> 12345</DelLocation>
-        <DelEdit>Edit zip code</DelEdit>
+        <div><DelEdit>Edit zip code</DelEdit></div>
     </DelTAOne>
     <DelTATwo>
         <DelReady><DelDates>Get it by Tue, Feb 30</DelDates> with free standard shipping {currPrice < 35 && `on $35 orders`}</DelReady>

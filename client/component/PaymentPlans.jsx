@@ -7,6 +7,8 @@ const PPDivs = styled.div`
 
 const SButton = styled.button`
     font-family: inherit;
+    color: rgb(51, 51, 51);
+    padding: 0;
     font-size: 14px;
     position: relative;
     border: none;

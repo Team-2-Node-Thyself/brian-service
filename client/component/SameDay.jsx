@@ -18,6 +18,9 @@ const SDLocation = styled.span`
 
 const SDEdit = styled.button`
     grid-area: mes;
+    color: rgb(51, 51, 51);
+    padding: 0;
+    margin-bottom: 15px;
     text-decoration: underline;
     font-size: 12px;
     font-family: inherit;

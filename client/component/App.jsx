@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     div{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: rgb(51, 51, 51);
-    },
+    }
 `;
 
 const WidgetArea = styled.div`
@@ -43,7 +43,7 @@ const CreditApp = styled.div`
     padding-top: 32px;
     padding-bottom: 32px;
     border-width: 1px 0 1px 0;
-    border-color: black;
+    border-color: rgb(214, 214, 214);
     border-style: solid;
     grid-column: 1;
     grid-row: 2/ span 2;
