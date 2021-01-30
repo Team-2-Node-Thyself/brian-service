@@ -53,6 +53,10 @@ const EstPrice = styled.span`
     font-weight: bold;
 `;
 
+const DetailLink = styled.span`
+    position: absolute;
+`;
+
 const DetailPlans = styled.a`
     position: relative;
     text-decoration: underline;
@@ -75,6 +79,9 @@ class InsuranceOption extends React.Component {
         this.state = {
             isChecked: false
         };
+
+        this.toggleCheck = this.toggleCheck.bind(this);
+        this.showModal = this.showModal.bind(this);
     }
 
     toggleCheck(event) {
@@ -83,13 +90,20 @@ class InsuranceOption extends React.Component {
             return {isChecked: !state.isChecked}
         })
     }
+
+    showModal(event) {
+        event.preventDefault();
+    }
     render(){
         return (
-            <Insurance checkbox={this.state.isChecked} onClick={this.toggleCheck.bind(this)}>
+            <>
+            <Insurance checkbox={this.state.isChecked} onClick={this.toggleCheck}>
                 <Checkbox checkbox={this.state.isChecked}></Checkbox>
                 <PlainText>Quiver 2 Year Pet Toy Protection Plan with Accidents coverage</PlainText>
-                <EstPrice>$5.00 </EstPrice><span><DetailPlans href='#'>See plan details</DetailPlans></span>
+                <EstPrice>$5.00 </EstPrice>
             </Insurance>
+            <DetailLink onClick={this.showModal}><DetailPlans href='#'>See plan details</DetailPlans></DetailLink>
+            </>
     
         );
     }

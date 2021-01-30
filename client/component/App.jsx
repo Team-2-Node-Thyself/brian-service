@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 const WidgetArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 100%);
-    grid-template-rows: 60px 15% 15% 60px 15% 15%;
+    grid-template-rows: 60px 15% 15% 60px 15% 35px 15%;
     width: 50%; 
     grid-gap: 20px;
 `;
@@ -57,7 +57,6 @@ const LocalStock = styled.div`
 `;
 
 const SameDayDeliver = styled.div`
-
     grid-column: 2;
     grid-row-start: 3;
     grid-row-end: 4;
@@ -68,6 +67,68 @@ const OnlineDeliver = styled.div`
     grid-row-start: 5;
     grid-row-end: 7;
 `;
+
+const RegWrapper = styled.div`
+    grid-column: 2;
+    grid-row-start: 7;
+    display: block;
+    margin: 0px 4px;
+`;
+
+const RegButton = styled.button`
+    height: 34px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 4px;
+    font-size: 12px;
+    
+    &:hover{
+        color: rgb(51, 51, 51);
+        background-color: rgb(244, 244, 244);
+        border-color: rgb(51, 51, 51);
+        text-decoration: none;
+    };
+    
+    &:active{
+        color: rgb(255, 255, 255);
+        background-color: rgb(51, 51, 51);
+        border-color: rgb(51, 51, 51);
+    };
+
+    &:focus{
+        color: rgb(51, 51, 51);
+        outline: rgb(136, 136, 136) dashed 1px;
+        outline-offset: 2px;
+        text-decoration: underline;
+    };
+    
+    &:active:focus{
+        outline: none;
+        color: rgb(255, 255, 255);
+    };
+
+    `;
+
+const Symb = styled.span`
+    height: 10px;
+    width: 10px;
+    background: white;
+    padding: 2px;
+    box-shadow: none;
+    border-radius: 100%;
+    border: 2px solid rgb(204,0,0);
+`;
+
+const RegTextWrapper = styled.span`
+    padding-left: 12px;
+`;
+
 
 class App extends React.Component {
     constructor(){
@@ -117,6 +178,7 @@ class App extends React.Component {
                         <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
                         <SameDayDeliver><CheckoutForm buttonText='Deliver it'><SameDay /></CheckoutForm></SameDayDeliver>
                         <OnlineDeliver><CheckoutForm buttonText='Ship it'><Delivery price={this.state.product.price} discount={this.state.product.discount}/></CheckoutForm></OnlineDeliver>
+                        <RegWrapper><RegButton><Symb></Symb><RegTextWrapper>Add to registry</RegTextWrapper></RegButton></RegWrapper>
                     </>}
                 </WidgetArea>
             </>
