@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ModalBackground = styled.div`
-position: fixed;
-inset: 0px;
-background: rgba(0, 0, 0, 0.7);
-z-index: 1000;
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
 `;
 
 const ModalTitle = styled.h2`
@@ -25,12 +25,12 @@ const ModalTitle = styled.h2`
 
 const Modal = styled.div`
     position: absolute;
-    inset: 50% auto auto 50%;
+    inset: 25% 25% auto 25%;
     background: rgb(255, 255, 255);
     border: 1px rgb(136, 136, 136);
     border-radius: 4px;
     margin-right: -50%;
-    // width: 85%;
+    width: 85%;
     max-width: 700px;
     max-height: 85%;
     padding: 1em;
@@ -99,7 +99,7 @@ let InsuranceModal = (props) => {
             <li><span><b>Number of years protected:</b> 2 years</span></li>
             <TaC href='#'>Terms and Conditions</TaC>
         </BenefitList>
-        <CloseButton onClick={props.close}><span style={{'fontWeight': 'bold'}}>X</span></CloseButton>  
+        <CloseButton><span style={{'fontWeight': 'bold'}}>X</span></CloseButton>  
         </Modal></ModalBackground>
     )
 }
