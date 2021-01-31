@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import InsuranceModal from './InsuranceModal.jsx';
 
 const Insurance = styled.div`
     cursor: pointer;
@@ -52,9 +53,8 @@ const EstPrice = styled.span`
     font-size: 19px;
     font-weight: bold;
 `;
-
-const DetailLink = styled.span`
-    position: absolute;
+const DetailLink = styled.div`
+    position: block;
 `;
 
 const DetailPlans = styled.a`
@@ -77,11 +77,12 @@ class InsuranceOption extends React.Component {
     constructor(){
         super();
         this.state = {
-            isChecked: false
+            isChecked: false,
+            showModal: false
         };
 
         this.toggleCheck = this.toggleCheck.bind(this);
-        this.showModal = this.showModal.bind(this);
+        this.openModal = this.openModal.bind(this);
     }
 
     toggleCheck(event) {
@@ -91,8 +92,11 @@ class InsuranceOption extends React.Component {
         })
     }
 
-    showModal(event) {
+    openModal(event) {
         event.preventDefault();
+        this.setState((state) => {
+            return {showModal: !state.showModal}
+        })
     }
     render(){
         return (
@@ -102,7 +106,8 @@ class InsuranceOption extends React.Component {
                 <PlainText>Quiver 2 Year Pet Toy Protection Plan with Accidents coverage</PlainText>
                 <EstPrice>$5.00 </EstPrice>
             </Insurance>
-            <DetailLink onClick={this.showModal}><DetailPlans href='#'>See plan details</DetailPlans></DetailLink>
+            <DetailLink onClick={this.openModal}><DetailPlans href='#'>See plan details</DetailPlans></DetailLink>
+            <InsuranceModal show={this.state.showModal}></InsuranceModal>
             </>
     
         );
