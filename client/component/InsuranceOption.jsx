@@ -83,6 +83,7 @@ class InsuranceOption extends React.Component {
 
         this.toggleCheck = this.toggleCheck.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     toggleCheck(event) {
@@ -94,6 +95,15 @@ class InsuranceOption extends React.Component {
 
     openModal(event) {
         event.preventDefault();
+        this.toggleModal();
+    }
+
+    closeModal(event){
+        event.preventDefault();
+        this.toggleModal();
+    }
+
+    toggleModal(){
         this.setState((state) => {
             return {showModal: !state.showModal}
         })
@@ -107,7 +117,7 @@ class InsuranceOption extends React.Component {
                 <EstPrice>$5.00 </EstPrice>
             </Insurance>
             <DetailLink onClick={this.openModal}><DetailPlans href='#'>See plan details</DetailPlans></DetailLink>
-            <InsuranceModal show={this.state.showModal}></InsuranceModal>
+            <InsuranceModal show={this.state.showModal} close={this.closeModal}></InsuranceModal>
             </>
     
         );
