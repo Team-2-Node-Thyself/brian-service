@@ -87,20 +87,23 @@ let InsuranceModal = (props) => {
         return null;
     }
     return (
-        <ModalBackground onClick={props.close}><Modal>
-        <ModalTitle>See plan details</ModalTitle>
-        <BenefitList>
-            <li><span><b>Benefits:</b> No Deductible, No Additional Cost, 24/7 Support, Free 2-Way Shipping</span></li>
-            <li><span><b>Support:</b> In-person, Online</span></li>
-            <li><span><b>Includes:</b> Normal Wear and Tear Coverage</span></li>
-            <li><span><b>Minimum Qualifying Item Price:</b> 10</span></li>
-            <li><span><b>Maximum Qualifying Item Price:</b> 99.99</span></li>
-            <li><span><b>Service plan type:</b> Quiver - Cat Toys</span></li>
-            <li><span><b>Number of years protected:</b> 2 years</span></li>
-            <TaC href='#'>Terms and Conditions</TaC>
-        </BenefitList>
-        <CloseButton><span style={{'fontWeight': 'bold'}}>X</span></CloseButton>  
-        </Modal></ModalBackground>
+        <React.Fragment>
+        <ModalBackground onClick={props.close}></ModalBackground>
+        <Modal>
+            <ModalTitle>See plan details</ModalTitle>
+            <BenefitList>
+                <li><span><b>Benefits:</b> No Deductible, No Additional Cost, 24/7 Support, Free 2-Way Shipping</span></li>
+                <li><span><b>Support:</b> In-person, Online</span></li>
+                <li><span><b>Includes:</b> Normal Wear and Tear Coverage</span></li>
+                <li><span><b>Minimum Qualifying Item Price:</b> 10</span></li>
+                <li><span><b>Maximum Qualifying Item Price:</b> 99.99</span></li>
+                <li><span><b>Service plan type:</b> Quiver - Cat Toys</span></li>
+                <li><span><b>Number of years protected:</b> 2 years</span></li>
+                <TaC href='#'>Terms and Conditions</TaC>
+            </BenefitList>
+            <CloseButton onClick={props.close}><span style={{'fontWeight': 'bold'}}>X</span></CloseButton>  
+        </Modal>
+        </React.Fragment>
     )
 }
 
