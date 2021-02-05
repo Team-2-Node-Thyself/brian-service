@@ -41,9 +41,9 @@
     "seed": "node seeding.js",
     "test": "jest",
     "db:create": "sequelize-cli db:create",
-    "db:seedTables": "node pgDatabase/model.js",
+    "db:tables": "node pgDatabase/model.js",
     "db:migrate": "sequelize-cli db:migrate",
-    "db:seed": "node bulkSeed.js"
+    "db:seed": "node generator.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
