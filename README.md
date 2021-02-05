@@ -20,7 +20,8 @@
 >new for SDC
 >>run `npm install`
 >>run `npm run db:create` this will create the a database called general_product_info_prod
->>run `npm run db:seedTables` this will run the models.js file in pgDatabase folder and create the tables generate data as-well as seed them
+>>run `npm run db:tables` this will run the models.js file in pgDatabase folder and create the tables and models
+>>run `npm run db:seed` this will run the generator.js file and generate and seed the dB
 
 
 ___________________________________________________________________________________
