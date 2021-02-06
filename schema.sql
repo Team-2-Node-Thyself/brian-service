@@ -27,7 +27,16 @@ CREATE TABLE `product` (
   `discount` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-
+CREATE TABLE product (
+  id SERIAL
+  info json {
+    name: ...
+    price: ...
+    color:
+    qty:
+    disc:
+  }
+)
 -- ---
 -- Foreign Keys 
 -- ---
