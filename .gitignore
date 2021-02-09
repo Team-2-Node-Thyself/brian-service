@@ -1,6 +1,5 @@
 bundle.js
 node_modules
-dbConfig.js
 newrelic.js
 export.json
 ksix.jsnewewlic_agent.log
