@@ -1,0 +1,83 @@
+{
+  "name": "iron-people-fec-general-sales-module",
+  "version": "0.1.0",
+  "description": "Includes feature that pertains to the general sales section in the Target app",
+  "author": "Eugene Chu",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "jest": {
+    "verbose": true,
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "^config$": "<rootDir>/configs/app-config.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>package.json"
+    ],
+    "transform": {
+      "\\.[jt]sx?$": "babel-jest"
+    }
+  },
+  "scripts": {
+    "start": "node server",
+    "dev-start": "nodemon server",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "seed": "node seeding.js",
+    "test": "jest",
+    "db:create": "sequelize-cli db:create",
+    "db:tables": "node pgDatabase/model.js",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:seed": "node generator.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-preset-airbnb": "^5.0.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "fs": "0.0.1-security",
+    "k6": "0.0.0",
+    "mysql": "^2.18.1",
+    "newrelic": "^7.1.1",
+    "pg": "^8.5.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.5.0",
+    "sequelize-stream": "^1.0.2",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "sequelize-cli": "^6.2.0",
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1",
+    "loastest": "*"
+  }
+}

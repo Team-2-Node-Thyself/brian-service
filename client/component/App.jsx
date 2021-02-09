@@ -131,59 +131,62 @@ const RegTextWrapper = styled.span`
 
 
 class App extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            product: {}
-        }
-    }
-    componentDidMount(){
-        // need to double check what window.location.pathname actually is
-        // when looking at the root on chromo devtool, it is just '/' and not 'localhost:8000/'
-        let productId = window.location.pathname;
+  constructor() {
+    super();
+    this.state = {
+      product: {}
+    };
+  }
+  componentDidMount() {
+    // need to double check what window.location.pathname actually is
+    // when looking at the root on chromo devtool, it is just '/' and not 'localhost:8000/'
+    let productId = window.location.pathname;
 
-        if(productId = '/'){
-            productId = '/products/1';
-        }
-
-        // pressuming that we are only loading one page for this app
-        // load the first product for this app.
-        axios.get(`http://localhost:8003/api${productId}`)
-        .then((response) => {
-            this.setState({
-                product: response.data[0]
-            });
-        }).catch(function(error) {
-            console.log(`Error loading data from database: ${error}`);
-        })
+    if (productId = '/') {
+      productId = '/products/1';
     }
 
-    render() {
-        return (
-            <>
-            <GlobalStyle/>
-                <WidgetArea>
-                    {Object.keys(this.state.product).length === 0 &&
+    // pressuming that we are only loading one page for this app
+    // load the first product for this app.
+    axios.get(`http://localhost:8003/api${productId}`)
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          product: response.data
+        });
+        console.log('SSSSTTTTTAAATTTTEEEE', this.state.product);
+      })
+      .catch(function(error) {
+        console.log(`Error loading data from database: ${error}`);
+      });
+  }
+
+  render() {
+    return (
+      <>
+        <GlobalStyle/>
+        <WidgetArea>
+          {Object.keys(this.state.product).length === 0 &&
                         <BrokenP>Something is wrong. Unless you paused as the page is rendering, this should never show up.</BrokenP>
-                    }
-                    {Object.keys(this.state.product).length > 0 &&
+          }
+          {Object.keys(this.state.product).length > 0 &&
                     <>
-                        <DisPri>
-                            <Price product={this.state.product}/> 
-                        </DisPri>
-                        <CreditApp><PaymentPlans price={this.state.product.price}/></CreditApp>
-                        <DisStock>
-                            <Stock product={this.state.product}/>
-                        </DisStock>
-                        <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
-                        <SameDayDeliver><CheckoutForm buttonText='Deliver it'><SameDay /></CheckoutForm></SameDayDeliver>
-                        <OnlineDeliver><CheckoutForm buttonText='Ship it'><Delivery price={this.state.product.price} discount={this.state.product.discount}/></CheckoutForm></OnlineDeliver>
-                        <RegWrapper><RegButton><Symb></Symb><RegTextWrapper>Add to registry</RegTextWrapper></RegButton></RegWrapper>
+                      <DisPri>
+                        <Price product={this.state.product}/> 
+                      </DisPri>
+                      <CreditApp><PaymentPlans price={this.state.product.price}/></CreditApp>
+                      <DisStock>
+                        <Stock product={this.state.product}/>
+                      </DisStock>
+                      <LocalStock><CheckoutForm buttonText='Pick it up'><PickUp /></CheckoutForm></LocalStock>
+                      <SameDayDeliver><CheckoutForm buttonText='Deliver it'><SameDay /></CheckoutForm></SameDayDeliver>
+                      <OnlineDeliver><CheckoutForm buttonText='Ship it'><Delivery price={this.state.product.price} discount={this.state.product.discount}/></CheckoutForm></OnlineDeliver>
+                      <RegWrapper><RegButton><Symb></Symb><RegTextWrapper>Add to registry</RegTextWrapper></RegButton></RegWrapper>
                     </>}
-                </WidgetArea>
-            </>
-        )
-    }
+        </WidgetArea>
+      </>
+    );
+  }
 }
 
 export default App;

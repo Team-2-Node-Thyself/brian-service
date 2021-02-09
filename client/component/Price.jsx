@@ -15,7 +15,7 @@ const PriceTitle = styled.div`
     `};
 `;
 
-const SalesTag =styled.span`
+const SalesTag = styled.span`
     font-size: 23px;
     font-weight: normal;
     margin-left: 4px;
@@ -28,21 +28,21 @@ const ProductSavings = styled.div`
     margin: 12px 0px;
 `;
 let Price = (props) => {
-    let {price, discount} = props.product;
-    let disPrice, disAmount;
-    if(price !== undefined){
-        price = price.toFixed(2);
-    }
-    if(discount !== undefined && discount !== 0){
-        disAmount = discount/100*price;
-        disPrice = (price-disAmount).toFixed(2);
-    }
-    return (
-        <PriceWidget>
-            <PriceTitle discount={discount}>{discount ? `$${(price-disAmount).toFixed(2)}` : `$${price}`}<SalesTag discount={discount}>Sale</SalesTag></PriceTitle>
-            <ProductSavings discount={discount}>reg ${price} {discount ? `Save $${disAmount.toFixed(2)} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</ProductSavings>
-        </PriceWidget>
-    );
-}
+  let {price, discount} = props.product;
+  let disPrice; let disAmount;
+  if (price !== undefined) {
+    price = price.toFixed(2);
+  }
+  if (discount !== undefined && discount !== 0) {
+    disAmount = discount / 100 * price;
+    disPrice = (price - disAmount).toFixed(2);
+  }
+  return (
+    <PriceWidget>
+      <PriceTitle discount={discount}>{discount ? `$${(price - disAmount).toFixed(2)}` : `$${price}`}<SalesTag discount={discount}>Sale</SalesTag></PriceTitle>
+      <ProductSavings discount={discount}>reg ${price} {discount ? `Save $${disAmount.toFixed(2)} (${discount}% Off)` : 'No Discount. Currently a placeholder'}</ProductSavings>
+    </PriceWidget>
+  );
+};
 
 export default Price;

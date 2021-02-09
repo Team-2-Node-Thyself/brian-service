@@ -1,9 +1,7 @@
 const Sequelize = require('sequelize');
 const config = require('../dbConfig.js');
-const sequelizeStream = require('sequelize-stream');
-const faker = require('faker');
 
-const connection = new Sequelize('general_product_info_prod', `${config.DB_USER_NAME}`, `${config.DB_PW}`, {host: 'localhost', dialect: 'postgres', logging: false});
+const connection = new Sequelize(`${config.DB_DB}`, `${config.DB_USER_NAME}`, `${config.DB_PW}`, {host: `${config.DB_HOST}`, port: `${config.DB_PORT}`, dialect: 'postgres', logging: false});
 
 //Define products table
 const Product = connection.define('products', {
@@ -15,17 +13,19 @@ const Product = connection.define('products', {
 const Colors = connection.define('colors', {
   color: Sequelize.STRING,
   qty: Sequelize.INTEGER,
-  prodnum: Sequelize.INTEGER
+  productId: Sequelize.INTEGER
 });
 //define relationships
 Product.hasMany(Colors, {
   as: 'colors'
 });
 Colors.belongsTo(Product, {
-  foreignKey: 'prodnum'
+  foreignKey: 'productId',
+  as: 'product'
 });
 //connect and create schema then disconnect
-connection.sync();
+connection.sync()
+  .catch((err) => console.log(err));
 
 
 //export models and connection
