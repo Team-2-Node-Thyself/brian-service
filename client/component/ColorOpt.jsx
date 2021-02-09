@@ -35,7 +35,7 @@ const ColorBorders = style(ColorButton)`
     border-radius: 3px;
     padding: 2px;
     background: white;
-    border: ${props => props.selected ? '2px solid rgb(0, 131, 0)' :'2px solid transparent'};
+    border: ${props => props.selected ? '2px solid rgb(0, 131, 0)' : '2px solid transparent'};
     &:hover{
         border: 2px solid rgb(0, 131, 0);
     };
@@ -86,21 +86,21 @@ const OutOfStock = style.div`
 `;
 
 var ColorOpt = (props) => {
-    let currColor = props.currColor[0].toUpperCase()+props.currColor.slice(1);
-    return (
-        <Variations>
-        <Title>color: <CurrColor>{currColor}</CurrColor></Title>
-        <ColorVar>
+  let currColor = props.currColor[0].toUpperCase() + props.currColor.slice(1);
+  return (
+    <Variations>
+      <Title>color: <CurrColor>{currColor}</CurrColor></Title>
+      <ColorVar>
 
-            <ColorWrapper><ColorBorders selected={true}><ColorSquare color={props.currColor} key={props.currColor+1}/></ColorBorders></ColorWrapper>
-            {
-                props.otherColors.map((colors, i) => {
-                    return <ColorWrapper><ColorBorders><ColorSquare color={colors.color} key={colors.color+i}><OutOfStock stock={colors.stock}>Out of Stock</OutOfStock></ColorSquare></ColorBorders></ColorWrapper>
-                })
-            }
-        </ColorVar>
-        </Variations>
-    );
+        <ColorWrapper><ColorBorders selected={true}><ColorSquare color={props.currColor} key={props.currColor + 1}/></ColorBorders></ColorWrapper>
+        {
+          props.otherColors.map((colors, i) => {
+            return <ColorWrapper><ColorBorders><ColorSquare color={colors.color} key={colors.color + i}><OutOfStock stock={colors.stock}>Out of Stock</OutOfStock></ColorSquare></ColorBorders></ColorWrapper>;
+          })
+        }
+      </ColorVar>
+    </Variations>
+  );
 };
 
 export default ColorOpt;
