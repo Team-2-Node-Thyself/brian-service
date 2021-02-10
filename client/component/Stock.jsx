@@ -24,6 +24,7 @@ class Stock extends React.Component {
     let {id, color} = this.props.product;
     axios.get(`http://localhost:8003/api/products/${id}/${color}`)
       .then((response) => {
+        console.log(response)
         this.setState({
           colors: response.data
         });
@@ -34,8 +35,8 @@ class Stock extends React.Component {
 
   render() {
     return (<>
-      <QuantityPicker quantity={this.props.product.stock} />
-      <ColorOpt currColor={this.props.product.color} otherColors={this.state.colors}/>
+      <QuantityPicker quantity={this.props.product.colors[0].qty} />
+      <ColorOpt currColor={this.props.product.colors[0].color} otherColors={this.state.colors}/>
       <InsuranceOption />
     </>);
   }

@@ -86,7 +86,7 @@ const OutOfStock = style.div`
 `;
 
 var ColorOpt = (props) => {
-  let currColor = props.currColor[0].toUpperCase() + props.currColor.slice(1);
+  let currColor = props.currColor.toUpperCase() + props.currColor.slice(1);
   return (
     <Variations>
       <Title>color: <CurrColor>{currColor}</CurrColor></Title>
