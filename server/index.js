@@ -38,22 +38,34 @@ app.listen(PORT, ()=> {
   console.log(`Server listening to http://localhost:${PORT}`);
 });
 
-// app.get('/api/products/:id/:color', (req, res) => {
-//   console.log(req.params);
-//   let _id = req.params.id; let _color = req.params.color;
-//   db.getProductColor(_id, _color, (err, result) => {
-//     if (err) {
-//       console.log(`Error happened when retrieving from database: ${err}`);
-//       res.status(404).send(err);
-//     } else if (result) {
-//       res.status(200).json(result);
-//     } else {
-//       let newErr = new Error('Something went wrong when retrieving from datase. Something and nothing was both found and not found. What a weird schrodinger experience.');
-//       console.log(newErr);
-//       res.status(404).send(err);
-//     }
-//   });
-// });
+app.get('/api/products/:id/:color', (req, res) => {
+  console.log(req.params);
+  // let _id = req.params.id; let _color = req.params.color;
+  // color
+  let colors = [];
+  Colors.findOne({
+    where: {id: Math.floor(Math.random() * (8500999 - 1 + 1) + 1)}
+  })
+    .then((resp) => {
+      colors.push(resp.dataValues.color);
+      return Colors.findOne({
+        where: {id: Math.floor(Math.random() * (8500999 - 1 + 1) + 1)}
+      });
+    })
+    .then(resp => {
+      colors.push(resp.dataValues.color);
+      return Colors.findOne({
+        where: {id: Math.floor(Math.random() * (8500999 - 1 + 1) + 1)}
+      });
+    })
+    .then(resp => {
+      colors.push(resp.dataValues.color);
+      res.write(JSON.stringify(colors));
+      res.end();
+    })
+    .catch(err => console.log(err));
+ 
+});
 
 
 
@@ -69,3 +81,15 @@ app.listen(PORT, ()=> {
 //       res.sendStatus(500);
 //     }
 //   });
+// db.getProductColor(_id, _color, (err, result) => {
+//   if (err) {
+//     console.log(`Error happened when retrieving from database: ${err}`);
+//     res.status(404).send(err);
+//   } else if (result) {
+//     res.status(200).json(result);
+//   } else {
+//     let newErr = new Error('Something went wrong when retrieving from datase. Something and nothing was both found and not found. What a weird schrodinger experience.');
+//     console.log(newErr);
+//     res.status(404).send(err);
+//   }
+// });
